@@ -1,10 +1,9 @@
 import { Router } from "express";
+import {showPerson,showPersonId,createPerson,updatePerson,deletePerson} from '../controllers/person.controller.js';
 
 const router =Router();
 
-router.get('/person',(req,res)=>res.send("List person"));
-router.post('/person',(req,res)=>res.send("Create new data person"));
-router.put('/person',(req,res)=>res.send("Update data person"));
-router.delete('/person',(req,res)=>res.send("Delete data person"));
+router.get('/person',showPerson);
+router.post('/person',createPerson);
 
 export default router;
