@@ -3,14 +3,14 @@ import personRoutes from './routes/person.routes.js'
 
 const app=express();
 
-// app.get('/ping',async (req,res)=>{
-//     const result =await connPool.query("SHOW TABLES");
-//     res.json(result[0]);
-// });
-
 app.use(express.json());
+app.use('/api',personRoutes);
 
-app.use(personRoutes);
+app.use((rep,res,nex)=>{
+    res.status(400).json({
+        message: 'Endpoint losses'
+    });
+});
 
 app.listen(3000);
 console.log("Server running....");
